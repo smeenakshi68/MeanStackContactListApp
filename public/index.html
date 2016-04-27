@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="contactApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+	<title>Contact list app</title>
+	<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode./svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+	<header>
+	<div class="container" data-ng-controller="appCtrl">
+		<table class="table">
+			<caption><h1> Contact List app</h1></caption>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+	<td><input class="form-control" ng-model="contact.name"></td>
+	<td><input class="form-control" ng-model="contact.email"></td>
+	<td><input class="form-control" ng-model="contact.phone"></td>
+	<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button>
+	<button class="btn btn-info" ng-click="update()">Update</button>
+	<button class="btn btn-success" ng-click="clear()">Clear</button></td>
+			</tr>
+				<tr  ng-repeat=" contact in personlist">
+					<td>{{contact.name}}</td>
+					<td>{{contact.email}}</td>
+					<td>{{contact.phone}}</td>
+					<td><buton class="btn btn-danger" ng-click="remove(contact._id)"/>REMOVE</buton>
+					<buton class="btn btn-warning" ng-click="edit(contact._id)"/>EDIT</buton></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</header>
+	<section>
+		<main>
+
+		</main>
+	</section>
+	<footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script src="contactApp.js"></script>
+		<script src="controllers/controller.js"></script>
+	</footer>
+</body>
+</html>
